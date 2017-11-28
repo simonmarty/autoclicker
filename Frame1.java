@@ -1,7 +1,11 @@
+/*
+ * Simple auto-clicking macro script
+ */
+
 package autoclicker;
+
 import java.awt.EventQueue;
 import javax.swing.JFrame;
-//import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.MouseInfo;
@@ -32,6 +36,8 @@ public class Frame1 {
 				try {
 					Frame1 window = new Frame1();
 					window.frmAutoclicker.setVisible(true);
+					//Debug
+					System.out.println("Position of the frame: "+window.frmAutoclicker.getLocationOnScreen());
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -51,11 +57,13 @@ public class Frame1 {
 	 */
 	private void initialize() {
 		frmAutoclicker = new JFrame();
+		frmAutoclicker.setAlwaysOnTop(true);
+		frmAutoclicker.setLocationByPlatform(true);
 		frmAutoclicker.setTitle("Autoclicker");
 		frmAutoclicker.setBounds(100, 100, 388, 169);
 		frmAutoclicker.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAutoclicker.getContentPane().setLayout(null);
-
+		
 		JButton btnClick = new JButton("Press I to execute the autoclick");
 		btnClick.setForeground(Color.BLACK);
 		btnClick.setBackground(Color.LIGHT_GRAY);
