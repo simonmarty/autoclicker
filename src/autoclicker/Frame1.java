@@ -60,10 +60,12 @@ public class Frame1 {
 
 		JButton btnSaveCursorPosition = new JButton("Press K to save the Position of your cursor");
 		btnSaveCursorPosition.setFont(new Font("Tahoma", Font.BOLD, 11));
+		
 		btnSaveCursorPosition.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
+		
 		btnSaveCursorPosition.addKeyListener(new KeyAdapter() {	//key listener of the autoclicker
 			@Override
 			public void keyPressed(KeyEvent arg0) {
