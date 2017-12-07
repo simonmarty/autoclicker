@@ -21,15 +21,12 @@ import java.awt.event.KeyEvent;
 public class Frame1 {
 
 	private JFrame frmAutoclicker;
-	public int width; // Pixel position on horizontal axis, 0 = Left
-	public int height; // Pixel position on vertical axis, 0 = Top
-	public final int RECORD = 75; // key : k
-	public final int ACTION = 73; // key : i
+	public int width;	// Pixel position on horizontal axis, 0 = Left
+	public int height;	// Pixel position on vertical axis, 0 = Top
+	public final int RECORD = 75;	// key : k
+	public final int ACTION = 73;	// key : i
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) {	//instantiates the JFrame through its constructor
 
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -45,17 +42,11 @@ public class Frame1 {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
-	public Frame1() {
+	public Frame1() {	//constructor of the frame
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
+	private void initialize() {	//initializes the contents of the frame
 		frmAutoclicker = new JFrame();
 		frmAutoclicker.setAlwaysOnTop(true);
 		frmAutoclicker.setLocationByPlatform(true);
@@ -77,15 +68,17 @@ public class Frame1 {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btnSaveCursorPosition.addKeyListener(new KeyAdapter() {
+		btnSaveCursorPosition.addKeyListener(new KeyAdapter() {	//key listener of the autoclicker
 			@Override
 			public void keyPressed(KeyEvent arg0) {
 				int code = arg0.getKeyCode(); // get the key code of the key currently pressed
 				if (code == RECORD) {
-					System.out.println("The record key was pressed");
+					try {
 					width = (int) MouseInfo.getPointerInfo().getLocation().getX();
 					height = (int) MouseInfo.getPointerInfo().getLocation().getY();
-					System.out.println("Mouse Position : " + width + " " + height);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
 				if (code == ACTION) {
 					Robot robot = null;
