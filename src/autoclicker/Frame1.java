@@ -33,8 +33,6 @@ public class Frame1 {
 				try {
 					Frame1 window = new Frame1();
 					window.frmAutoclicker.setVisible(true);
-					//Debug
-					System.out.println("Position of the frame: "+window.frmAutoclicker.getLocationOnScreen());
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
