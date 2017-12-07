@@ -77,10 +77,11 @@ public class Frame1 {
 					width = (int) MouseInfo.getPointerInfo().getLocation().getX();
 					height = (int) MouseInfo.getPointerInfo().getLocation().getY();
 					} catch (Exception e) {
+						System.out.println("Getting mouse pointeer position failed");
 						e.printStackTrace();
 					}
 				}
-				if (code == ACTION) {
+				if (code == ACTION) {	//second keycode, launches the macro
 					Robot robot = null;
 					try {
 						robot = new Robot();
