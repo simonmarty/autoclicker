@@ -21,8 +21,6 @@ import java.awt.event.KeyEvent;
 public class Frame1 {
 
 	private JFrame frmAutoclicker;
-	public int width;	// Pixel position on horizontal axis, 0 = Left
-	public int height;	// Pixel position on vertical axis, 0 = Top
 	public final int RECORD = 75;	// key : k
 	public final int ACTION = 73;	// key : i
 
@@ -71,26 +69,9 @@ public class Frame1 {
 			public void keyPressed(KeyEvent arg0) {
 				int code = arg0.getKeyCode(); // get the key code of the key currently pressed
 				if (code == RECORD) {
-					try {
-					width = (int) MouseInfo.getPointerInfo().getLocation().getX();
-					height = (int) MouseInfo.getPointerInfo().getLocation().getY();
-					} catch (Exception e) {
-						System.out.println("Getting mouse pointeer position failed");
-						e.printStackTrace();
-					}
 				}
 				if (code == ACTION) {	//second keycode, launches the macro
-					Robot robot = null;
-					try {
-						robot = new Robot();
-					} catch (AWTException ex) {
-						ex.printStackTrace();
-					}
-					System.out.println("The action key was pressed");
-					robot.mouseMove(width, height);
-					robot.mousePress(InputEvent.BUTTON1_MASK);
-				    robot.mouseRelease(InputEvent.BUTTON1_MASK);
-					System.out.println("Mouse cursor moved to :" + width + " " + height);
+
 				}
 
 			}
